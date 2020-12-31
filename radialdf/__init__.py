@@ -10,16 +10,17 @@ def inner_rdf(boundary, particles, r, dr):
     """
     Computes the radial distribution function, showing the average density of other
     particles around each particle sampled in concentric shells of thickness ``dr`` within
-    a maximum radius of ``r``. This function avoids the outer ``r`` edges of each
-    dimension as it currently does not deal with border effects. It will calculate the
-    RDF based only on those particles located at least ``r`` away from all borders.
+    a maximum radius of ``r``. This function stays a distance of ``r`` away from all
+    borders as it currently does not deal with border effects. It will calculate the RDF
+    only for those particles located at least ``r`` away from each border.
 
     The ``particles`` argument should have an (n, k) shape where n is the amount of
     particles and k the number of dimensions.
 
     The ``boundary`` argument should have shape (k, 2) where each row is the mimimum and
     maximum of a dimension of the volume within which particles should have been placed.
-    An example for 3d-data would be [[0, 100], [0, 200], [0, 100]] for a 100x200x100 box.
+    An example for 3d-data would be ``[[0, 100], [0, 200], [0, 100]]`` for a 100x200x100
+    box.
 
     :param boundary: The limits for each dimension of the particles. Used to normalize to volume and exclude boundary particles.
     :type boundary: np.ndarray-like with shape (k, 2)
