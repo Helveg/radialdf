@@ -10,7 +10,7 @@ Welcome to RadialDF's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   radialdf
 
 Indices and tables
 ==================
