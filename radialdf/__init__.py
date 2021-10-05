@@ -186,10 +186,7 @@ def volume_rdf(volume, particles, r, dr, shell_points=100):
     bin_densities = np.zeros(len(radii))
     shells, shell_volumes = volume.get_shells(r, dr, shell_points)
     hit_func = volume._get_hit_function()
-    #if PLOTTING:
-    #    fig = go.Figure(data=[go.Scatter3d(x=grid[:,0],y=grid[:,1],z=grid[:,2],
-    #                    mode='markers')])
-    #    fig.show()
+    
     print("Shells retrieved: len {}".format(len(shells)))
 
     print("Iterating over particles")

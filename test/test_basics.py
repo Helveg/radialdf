@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 
 class TestRDF(unittest.TestCase):
     def test_box(self):
-        # Generate 10000 random particles with 3 coordinates between 0 and 100
+        # Generate 10000 random particles with 3 coordinates between 0 and 10
         side = 10
         resolution = 0.2
         particles = np.random.rand(1000, 3) * side
