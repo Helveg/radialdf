@@ -16,8 +16,7 @@ except AttributeError:
 def _pairs(iterable):
     "s -> (0, s0), (s0,s1), (s1,s2), (s2, s3), ..."
     a, b = itertools.tee(iterable)
-    a0 = next(b, None)
-    yield 0, a0
+    yield 0, next(b)
     yield from zip(a, b)
 
 def _sphere_volume(r):
