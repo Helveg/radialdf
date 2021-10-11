@@ -80,6 +80,19 @@ class Box(Volume):
         return self._side ** 3
 
 
+class Sphere(Volume):
+    def __init__(self, radius, resolution=0.2):
+        self._resolution = resolution
+        self.radius = radius
+        super().__init__([[-radius, radius]] * 3, resolution)
+    
+    def hit_function(self, x):
+        return np.sum(x ** 2)  < self.radius ** 2
+
+    def total_volume(self):
+        return _sphere_volume(self.radius)  
+
+
 def inner_rdf(boundary, particles, r, dr):
     """
     Computes the radial distribution function, showing the average density of other
@@ -210,7 +223,7 @@ def volume_rdf(volume, particles, r, dr, shell_points=100):
             prev_n = n
             assert shell_n >= 0, "negative neighbours"
             assert shell_volume > 0, "negative shell volume"
-            assert occupancy >= 0 and occupancy <= 1, "weird occupancy"
+            assert occupancy > 0 and occupancy <= 1, "weird occupancy"
             bins[id] = shell_n / shell_v
 
         bin_densities += bins
