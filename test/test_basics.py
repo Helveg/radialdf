@@ -14,7 +14,7 @@ class TestRDF(unittest.TestCase):
         g = radialdf.volume_rdf(box, particles, 4, resolution)
         ##self.assertAlmostEqual(4, len(g), "This should have been 4")
         print("RESULT:", g)
-        #go.Figure(go.Scatter(x=[i * resolution for i in range(int(side // resolution))], y=g)).show()
+        go.Figure(go.Scatter(x=[i * resolution for i in range(int(side // resolution))], y=g)).show()
     
 
     def test_sphere(self): 
